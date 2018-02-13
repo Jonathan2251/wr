@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Note about LLVM &mdash; Chen Chung-Shu Personal Web Site</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Chen Chung-Shu Personal Web Site" href="index.html" />
+    <link rel="next" title="Note" href="note.html" />
+    <link rel="prev" title="Chinese language" href="chinese.html" /> 
+  </head>
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>Chen Chung-Shu Personal Web Site</span></a></h1>
+        <h2 class="heading"><span>Note about LLVM</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="chinese.html">Chinese language</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="note.html">Note</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="note-about-llvm">
+<h1>Note about LLVM<a class="headerlink" href="#note-about-llvm" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#lld" id="id1">lld</a></li>
+<li><a class="reference internal" href="#sphinx" id="id2">Sphinx</a></li>
+<li><a class="reference internal" href="#imac" id="id3">iMac</a></li>
+<li><a class="reference internal" href="#build-libcxx-arm" id="id4">Build libcxx-arm</a></li>
+<li><a class="reference internal" href="#libc" id="id5">libc++</a></li>
+<li><a class="reference internal" href="#unix-linux-command" id="id6">Unix/linux command</a></li>
+<li><a class="reference internal" href="#git" id="id7">git</a></li>
+<li><a class="reference internal" href="#lbt" id="id8">lbt</a></li>
+<li><a class="reference internal" href="#oprofile" id="id9">oprofile</a></li>
+<li><a class="reference internal" href="#gem5" id="id10">gem5</a></li>
+<li><a class="reference internal" href="#polly" id="id11">polly</a></li>
+<li><a class="reference internal" href="#polly-author-tobias" id="id12">Polly author: Tobias</a></li>
+<li><a class="reference internal" href="#gang-ryung-uh-associate-professor" id="id13">Gang-Ryung Uh: Associate professor</a></li>
+</ul>
+</div>
+<div class="section" id="lld">
+<h2><a class="toc-backref" href="#id1">lld</a><a class="headerlink" href="#lld" title="Permalink to this headline">¶</a></h2>
+<p>cmake -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_FLAGS=-std=c++11 -DCMAKE_BUILD_TYPE=Debug -DLLVM_TARGETS_TO_BUILD=Cpu0 -G &#8220;Unix Makefiles&#8221; ../src
+make -j8 -l8</p>
+<p>cmake -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_FLAGS=-std=c++11 -DCMAKE_BUILD_TYPE=Debug -DLLVM_TARGETS_TO_BUILD=Cpu0 -G &#8220;Xcode&#8221; ../src</p>
+<p>git clone <a class="reference external" href="http://llvm.org/git/llvm.git">http://llvm.org/git/llvm.git</a> src
+cd src/tools</p>
+<p>git clone <a class="reference external" href="http://llvm.org/git/lld.git">http://llvm.org/git/lld.git</a> lld</p>
+</div>
+<div class="section" id="sphinx">
+<h2><a class="toc-backref" href="#id2">Sphinx</a><a class="headerlink" href="#sphinx" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>gh-pages:</li>
+</ol>
+<blockquote>
+<div><p>One time procedure for gh-pages: // Create gp-pages branch</p>
+<blockquote>
+<div><a class="reference external" href="https://help.github.com/articles/creating-project-pages-manually">https://help.github.com/articles/creating-project-pages-manually</a></div></blockquote>
+<p>Put .onjekyll file in gh-pages</p>
+</div></blockquote>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/Jonathan2251/web</span>
+<span class="go">cd web</span>
+<span class="go">git checkout gh-pages // switch to gh-pages</span>
+<span class="go">touch .nojekyll</span>
+<span class="go">git add .nojekyll</span>
+<span class="go">git commit -m &quot;add .nojekyll&quot;</span>
+<span class="go">git push</span>
+<span class="go">make gh-pages</span>
+</pre></div>
+</div>
+<p>nvbook has .nojekyll as follows,</p>
+<p><a class="reference external" href="https://github.com/nikhilm/uvbook/blob/gh-pages/.nojekyll">https://github.com/nikhilm/uvbook/blob/gh-pages/.nojekyll</a></p>
+<p><strong>Without .nojekyll, the gh-pages displayed differently against built html.</strong></p>
+<ol class="arabic simple" start="2">
+<li>For iMac, set following on .profile if language of computer use English instead of Chinese:</li>
+</ol>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">export LC_ALL=en_US.UTF-8</span>
+<span class="go">export LANG=en_US.UTF-8</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="imac">
+<h2><a class="toc-backref" href="#id3">iMac</a><a class="headerlink" href="#imac" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Operation:</li>
+</ol>
+<blockquote>
+<div><p>** show binary file by hexdump or TextWrangler **</p>
+<p>hexdump ch4_5_1.cpu0.o</p>
+<p>otool</p>
+<p>od</p>
+<p>Open binary file by TextWrangler, and select File - Hex Dump Front Document - Front document&#8217;s file</p>
+<p>Safari cannot attach file in yahoo e-mail, Firefox can.</p>
+<p>Terminal:</p>
+<p>Ctrl + a and Ctrl + e for beginning and end respectively.</p>
+<p>Print screen:</p>
+<p>shift + command + 4, use mouse to select your window/area to copy to chipboard, and paste it to your document file.</p>
+<p>Room in/out: control + finger move up/down on mouse (must check System Preferences &#8211; Accessibility &#8211; Room &#8211; Use scroll gesture with modifier keys to zoom: Control)</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Sync/backup disk:</li>
+</ol>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">rsync -azv --delete 備份/* /Volumes/Untitled/備份</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-libcxx-arm">
+<h2><a class="toc-backref" href="#id4">Build libcxx-arm</a><a class="headerlink" href="#build-libcxx-arm" title="Permalink to this headline">¶</a></h2>
+<p>CC=&#8217;clang&#8217; CXX=&#8217;clang++&#8217; cmake -DCMAKE_CROSSCOMPILING=True -DLLVM_TABLEGEN=/usr/local/llvm/release/cmake_release_build/bin/llvm-tblgen -DCLANG_TABLEGEN=/usr/local/llvm/release/cmake_release_build/bin/clang-tblgen -DLLVM_DEFAULT_TARGET_TRIPLE=arm-linux-gnueabihf -DLLVM_TARGET_ARCH=ARM -DLLVM_TARGETS_TO_BUILD=ARM -DCMAKE_CXX_FLAGS=&#8217;-target armv7a-linux-gnueabihf -mcpu=cortex-a9 -I/usr/gcc-linaro-arm-linux-gnueabihf-4.8-2013.04-20130417_linux/arm-linux-gnueabihf/include/c++/4.8.1/arm-linux-gnueabihf -I/usr/gcc-linaro-arm-linux-gnueabihf-4.8-2013.04-20130417_linux/include/ -mfloat-abi=hard -ccc-gcc-name arm-linux-gnueabihf-gcc&#8217; ../src</p>
+<p>native try:
+PASS: CC=clang CXX=clang++ cmake -G &#8220;Unix Makefiles&#8221; -DCMAKE_BUILD_TYPE=Release ../src
+FAIL: CC=clang CXX=clang++ cmake -G &#8220;Unix Makefiles&#8221; -DLIBCXX_CXX_ABI=libstdc++ -DLIBCXX_LIBSUPCXX_INCLUDE_PATHS=&#8221;/usr/include/c++/4.8&#8221; -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr ../src</p>
+</div>
+<div class="section" id="libc">
+<h2><a class="toc-backref" href="#id5">libc++</a><a class="headerlink" href="#libc" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>libc++ can be build and run as follows,</li>
+</ol>
+<blockquote>
+<div><dl class="docutils">
+<dt>(1).</dt>
+<dd>~/test/llvm-libc++-3.5/cmake_release_build$ cmake -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_FLAGS=-std=c++11 -DCMAKE_BUILD_TYPE=Release -G &#8220;Unix Makefiles&#8221; ../src</dd>
+<dt>(2). Set LD_LIBRARY_PATH=&#8221;/home/cschen/test/llvm-libc++-3.5/cmake_release_build/lib&#8221; in ~/.bashrc as follows</dt>
+<dd>export LD_LIBRARY_PATH=&#8221;$LD_LIBRARY_PATH:/home/cschen/test/0819-polly/cloog_install/lib:/home/cschen/test/0819-polly/llvm_build/lib:/home/cschen/test/llvm-libc++-3.5/cmake_release_build/lib&#8221;</dd>
+<dt>(3).</dt>
+<dd>~/test/lbd/docs/BackendTutorial/source_ExampleCode/InputFiles$ /home/cschen/test/llvm-libc++-3.5/cmake_release_build/bin/clang++ -stdlib=libc++ -I/home/cschen/test/llvm-libc++-3.5/src/projects/libcxx/include hello.cpp -nodefaultlibs -lc++ -lc++abi -lm -lc -lgcc_s -lgcc</dd>
+<dt>(4).</dt>
+<dd>~/test/lbd/docs/BackendTutorial/source_ExampleCode/InputFiles$ ./a.out
+hello world</dd>
+</dl>
+<p>(5). If you don&#8217;t set LD_LIBRARY_PATH as (2), then it fail.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Native x86_64 can be built successfully by these commands as follows,</li>
+</ol>
+<blockquote>
+<div><p>cmake -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_FLAGS=-std=c++11 -DCMAKE_BUILD_TYPE=Release -G &#8220;Unix Makefiles&#8221; ../src</p>
+<p>CC=clang CXX=clang++ cmake -G &#8220;Unix Makefiles&#8221; -DLIBCXX_CXX_ABI=libstdc++ -DLIBCXX_LIBSUPCXX_INCLUDE_PATHS=&#8221;/usr/include/c++/4.8/;/usr/include/x86_64-linux-gnu/c++/4.8/&#8221; -DCMAKE_BUILD_TYPE=Release ../src</p>
+</div></blockquote>
+<ol class="arabic" start="3">
+<li><p class="first">Arm cross compiler can be built and run successfully by commands,</p>
+<blockquote>
+<div><p>clang++ -target arm-linux-gnueabihf -isystem out-arm/include -isystem out-arm/include/c++/v1 -isystem /usr/arm-linux-gnueabihf/include -Lout-arm/lib -lc++ -lpthread -lc++abi -lm -lc -lgcc_s -lgcc hello-world.cpp -o a.out</p>
+<p>export &#8220;LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib/:/usr/arm-linux-gnueabihf/lib/&#8221;</p>
+</div></blockquote>
+</li>
+</ol>
+<p>4. google libc++ benchmark:
+<a class="reference external" href="https://github.com/google/benchmark">https://github.com/google/benchmark</a></p>
+</div>
+<div class="section" id="unix-linux-command">
+<h2><a class="toc-backref" href="#id6">Unix/linux command</a><a class="headerlink" href="#unix-linux-command" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Replace &#8220;Mips&#8221; with &#8220;Cpu0&#8221; in currently directory of all files.</li>
+</ul>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">// Linux:</span>
+<span class="go">find . -type f -print0 | xargs -0 sed -i &#39;s/Mips/Cpu0/g&#39;</span>
+<span class="go">find . -type f -print0 | xargs -0 sed -i &#39;s/MIPS/CPU0/g&#39;</span>
+<span class="go">find . -type f -print0 | xargs -0 sed -i &#39;s/mips/cpu0/g&#39;</span>
+
+<span class="go">// iMac:</span>
+<span class="go">find . -type f -print0 | xargs -0 sed -i &#39;&#39; &#39;s/Mips/Cpu0/g&#39;</span>
+
+<span class="go">/*-print0 (GNU find only) tells find to use the null character (\0) instead of whitespace as the output delimiter between pathnames found. This is a safer option if you files can contain blanks or other special character. It is recommended to use the -print0 argument to find if you use -exec command or xargs (the -0 argument is needed in xargs.).*/</span>
+
+<span class="go">rename Mips Cpu0 * AsmParser/* Disassembler/* InstPrinter/* MCTargetDesc/* TargetInfo/*</span>
+
+<span class="go">In Ubuntu:</span>
+<span class="go">rename &#39;s/Mips/Cpu0/g&#39; * AsmParser/* Disassembler/* InstPrinter/* MCTargetDesc/* TargetInfo/*</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Replace \t</li>
+</ul>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">awk &#39;{gsub(&quot;\t&quot;,&quot;  &quot;,$0); print;}&#39; ch4_1.cpu0.s &gt; 1</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">grep exclude dir.</p>
+<p>grep -R &#8211;exclude-dir=./Target/Mips &#8216;mips&#8217; .</p>
+</li>
+</ul>
+</div>
+<div class="section" id="git">
+<h2><a class="toc-backref" href="#id7">git</a><a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Web:</p>
+<p>My llvmbook:</p>
+<blockquote>
+<div><p>github:                               <a class="reference external" href="https://github.com/Jonathan2251/lbd">https://github.com/Jonathan2251/lbd</a></p>
+<p>gh-pages:                     <a class="reference external" href="http://jonathan2251.github.com/lbd/index.html">http://jonathan2251.github.com/lbd/index.html</a></p>
+<p>git clone <a class="reference external" href="https://github.com/Jonathan2251/lbd.git">https://github.com/Jonathan2251/lbd.git</a></p>
+</div></blockquote>
+<p>Other book:</p>
+<blockquote>
+<div><p>github:                               <a class="reference external" href="https://github.com/Jonathan2251/lbt">https://github.com/Jonathan2251/lbt</a></p>
+<p>github:                               <a class="reference external" href="https://github.com/Jonathan2251/tra">https://github.com/Jonathan2251/tra</a></p>
+</div></blockquote>
+<p>Personal web:</p>
+<blockquote>
+<div><p>git clone <a class="reference external" href="https://github.com/Jonathan2251/web.git">https://github.com/Jonathan2251/web.git</a></p>
+</div></blockquote>
+<p>uvbook:</p>
+<blockquote>
+<div><blockquote>
+<div><p>git clone <a class="reference external" href="https://github.com/nikhilm/uvbook">https://github.com/nikhilm/uvbook</a></p>
+</div></blockquote>
+<p><a class="reference external" href="http://nikhilm.github.com/uvbook/index.html">http://nikhilm.github.com/uvbook/index.html</a></p>
+</div></blockquote>
+<dl class="docutils">
+<dt>clang git hub</dt>
+<dd><p class="first last">git clone <a class="reference external" href="http://llvm.org/git/clang">http://llvm.org/git/clang</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+<ol class="arabic simple" start="2">
+<li>Sync from llvm mirror:</li>
+</ol>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">Sync my changes of lbd to llvmtrunk:</span>
+<span class="go">Use https: instead of git: in company ubuntu</span>
+
+<span class="gp">$</span> git remote add llvmtrunk https://github.com/llvm-mirror/llvm.git
+<span class="gp">$</span> git fetch llvmtrunk
+<span class="gp">$</span> git merge llvmtrunk/master
+
+<span class="go">You should also be able to easily update to the latest LLVM trunk version by adding any LLVM git mirror (such as git://github.com/llvm-mirror/llvm.git) as a remote and directly merging from it:</span>
+
+<span class="gp">$</span> git remote add llvmtrunk git://github.com/llvm-mirror/llvm.git
+<span class="gp">$</span> git fetch llvmtrunk
+<span class="gp">$</span> git merge llvmtrunk/master
+
+<span class="go">Compare/switch between lbd and llvmtrunk</span>
+<span class="go">You can also do:</span>
+
+<span class="gp">$</span> git fetch llvmtrunk
+<span class="gp">$</span> git diff llvmtrunk/master
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Branch operations:</li>
+</ol>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">// see all remote branch</span>
+<span class="go">git remote show origin</span>
+
+<span class="go">// checkout release 3.4 branch</span>
+<span class="go">git checkout release_34</span>
+
+<span class="go">// Create remote branch</span>
+<span class="go">git branch release_33</span>
+<span class="go">git push origin release_33</span>
+
+<span class="go">// switch to clang release 32</span>
+<span class="go">git checkout --track -b release_32 remotes/origin/release_32</span>
+
+<span class="go">// list remote branches</span>
+<span class="go">git ls-remote --heads origin</span>
+
+<span class="go">// remove remote branch</span>
+<span class="go">git branch -dr origin/release_370</span>
+<span class="go">// push remove branch to remote</span>
+<span class="go">git push origin :refs/heads/release_370</span>
+<span class="go">// If you have both tag and branch release_370 then you have to do both</span>
+<span class="go">// commands as above. If you have branch only, the 2nd command is enough.</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>remove files permanently:</li>
+</ol>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">git filter-branch --tree-filter --ignore-unmatch &#39;rm -rf lib&#39; HEAD</span>
+<span class="go">git push origin master --force</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>create tag:</li>
+</ol>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">git tag -a release_374 -m &quot;release version 3.7.4&quot;</span>
+<span class="go">git push origin release_374</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lbt">
+<h2><a class="toc-backref" href="#id8">lbt</a><a class="headerlink" href="#lbt" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>translate .dot to .png:</li>
+</ul>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">dot -Tpng /tmp/llvm_OHjeXR/dag.main.dot &gt; 1.png</span>
+<span class="go">eog 1.png</span>
+</pre></div>
+</div>
+<ul>
+<li><p class="first">co-works:
+Wei-Ren github,</p>
+<dl class="docutils">
+<dt>Here it is,</dt>
+<dd><p class="first"><a class="reference external" href="https://github.com/azru0512/lbd">https://github.com/azru0512/lbd</a></p>
+<p>You can also see my pull-request here on your github,</p>
+<p><a class="reference external" href="https://github.com/Jonathan2251/lbd/pull/10">https://github.com/Jonathan2251/lbd/pull/10</a></p>
+<blockquote class="last">
+<div><p>git clone <a class="reference external" href="https://github.com/azru0512/lbd.git">https://github.com/azru0512/lbd.git</a></p>
+</div></blockquote>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">clang -target mips-unknown-linux-gnu -c ch4_1.cpp -emit-llvm -o ch4_1.bc</span>
+<span class="go">// Replace \t with &quot;  &quot;, Fold 80 characters</span>
+<span class="go">/Users/Jonathan/llvm/test/cmake_debug_build/bin/Debug/llvm-dis ch4_1.bc -o - |awk &#39;{gsub(&quot;\t&quot;,&quot;  &quot;,$0); print;}&#39;|fold -w 80 &gt; ../../terminal_out/ch4_1.ll</span>
+<span class="go">/Users/Jonathan/llvm/test/cmake_debug_build/bin/Debug/llc -march=cpu0 -relocation-model=pic -filetype=asm ch4_1.bc -o - |awk &#39;{gsub(&quot;\t&quot;,&quot;  &quot;,$0); print;}&#39;|fold -w 80|awk &#39;{gsub(&quot;\t&quot;,&quot;  &quot;,$0); print;}&#39; &gt; ../../terminal_out/ch4_1.pic.cpu0.s</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="oprofile">
+<h2><a class="toc-backref" href="#id9">oprofile</a><a class="headerlink" href="#oprofile" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">ocount --events=l1d_pend_miss:occurences,l1d_pend_miss:pending,l2_l1d_wb_rqsts:miss,l2_l1d_wb_rqsts:hit_e,l2_l1d_wb_rqsts:hit_m,l2_rqsts:rfo_miss,l2_rqsts:rfo_hit,LLC_MISSES,LLC_REFS  ./matmul</span>
+
+<span class="go">ocount --events=l1d_pend_miss:pending  ./matmul</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gem5">
+<h2><a class="toc-backref" href="#id10">gem5</a><a class="headerlink" href="#gem5" title="Permalink to this headline">¶</a></h2>
+<p>Use arm cross compiler toolchain from internet:</p>
+<ol class="arabic">
+<li><p class="first">Download gcc-linaro-arm-linux-gnueabihf-4.8-2014.04_linux.tar.xz</p>
+<p><a class="reference external" href="https://releases.linaro.org/14.04/components/toolchain/binaries/">https://releases.linaro.org/14.04/components/toolchain/binaries/</a></p>
+</li>
+<li><p class="first">Run</p>
+</li>
+</ol>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">cschen@cschen-01:~/test/1/gem5/tests/test-progs/ch9_3_vararg/src$</span> ~/Downloads/gcc-linaro-arm-linux-gnueabihf-4.8-2014.04_linux/bin/arm-linux-gnueabihf-gcc -static hello.c
+<span class="gp">cschen@cschen-01:~/test/1/gem5/tests/test-progs/ch9_3_vararg/src$</span> ls -l
+<span class="go">total 516</span>
+<span class="go">-rwxrwxr-x 1 cschen cschen 505534 Feb  1 17:59 a.out</span>
+<span class="go">-rwxrwxr-x 1 cschen cschen   5476 Nov  5 14:25 ch9_3_vararg</span>
+<span class="go">-rw-rw-r-- 1 cschen cschen    769 Nov  4 10:42 ch9_3_vararg.c</span>
+<span class="go">-rw-rw-r-- 1 cschen cschen    743 Nov  4 10:39 ch9_3_vararg.c~</span>
+<span class="go">-rw-rw-r-- 1 cschen cschen   1677 Nov  3 16:03 hello.c</span>
+<span class="gp">cschen@cschen-01:~/test/1/gem5/tests/test-progs/ch9_3_vararg/src$</span> /usr/bin/qemu-arm a.out
+<span class="go">Hello world!</span>
+</pre></div>
+</div>
+<p>Use built toolchain from me:</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">cschen@cschen-01:~/test/1/gem5/tests/test-progs/ch9_3_vararg/src$</span> ~/test/polly/cmake_arm_debug_build/bin/clang -static -mcpu<span class="o">=</span>cortex-a9 -mfloat-abi<span class="o">=</span>hard -mfpu<span class="o">=</span>neon hello.c
+<span class="gp">cschen@cschen-01:~/test/1/gem5/tests/test-progs/ch9_3_vararg/src$</span> ls
+<span class="go">a.out  ch9_3_vararg  ch9_3_vararg.c  ch9_3_vararg.c~  hello.c</span>
+<span class="gp">cschen@cschen-01:~/test/1/gem5/tests/test-progs/ch9_3_vararg/src$</span> /usr/bin/qemu-arm a.out
+<span class="go">Hello world!</span>
+
+<span class="gp">cschen@cschen-01:~/test/1/gem5/tests/test-progs/ch9_3_vararg/src$</span> ~/test/llvm-arm-toolchain/1/Marvell_toolchain_2013_04_12/arm-marvell-linux-gnueabi-hard_x86_64/bin/arm-marvell-linux-gnueabi-gcc -static hello.c
+<span class="gp">cschen@cschen-01:~/test/1/gem5/tests/test-progs/ch9_3_vararg/src$</span> /usr/bin/qemu-arm a.out
+<span class="go">Hello world!</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="polly">
+<h2><a class="toc-backref" href="#id11">polly</a><a class="headerlink" href="#polly" title="Permalink to this headline">¶</a></h2>
+<p>Can build with c11 option.</p>
+<ol class="arabic simple">
+<li>Install cloog which depend on GMP as follows,</li>
+</ol>
+<blockquote>
+<div><a class="reference external" href="http://www.cloog.org/">http://www.cloog.org/</a>
+<a class="reference external" href="https://gmplib.org/">https://gmplib.org/</a></div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Install llvm, clang and polly:</li>
+</ol>
+<blockquote>
+<div>clang and polly put in llvm/tools/</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Use polly:</li>
+</ol>
+<blockquote>
+<div>alias pollycc=&#8221;~/test/polly/cmake_debug_build/bin/clang -Xclang -load -Xclang ~/test/polly/cmake_debug_build/lib/LLVMPolly.so&#8221;
+pollycc -mllvm -polly -O3 ch8_1_3.cpp -o a.polly.out
+or,
+~/test/polly/cmake_debug_build/bin/clang -Xclang -load -Xclang ~/test/polly/cmake_debug_build/lib/LLVMPolly.so -mllvm -polly -O3 ch8_1_3.cpp -o a.polly.out</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Reference:</li>
+</ol>
+<blockquote>
+<div><a class="reference external" href="http://comments.gmane.org/gmane.comp.compilers.llvm.devel/60547">http://comments.gmane.org/gmane.comp.compilers.llvm.devel/60547</a>
+Polly-basic:  clang -Xclang -load -Xclang LLVMPolly.so -O3  (! load polly but no use of polly optimization)
+Polly-optimize: clang -Xclang -load -Xclang LLVMPolly.so -mllvm -polly -O3 (use polly optimization)</div></blockquote>
+<ol class="arabic" start="5">
+<li><p class="first">Build by polly_cschen.sh and polly_cschen_arm.sh in directory polybench-c-3.2/.</p>
+<p>Run with command, ./polly_cschen.sh to get llvm/clang/polly source and build it on dir llvm_build.
+Run with command, ./polly_cschen_arm.sh to build it with llvm arm toolchain on dir llvm_arm_build.</p>
+</li>
+<li><p class="first">Run example code for polly and compare the result with non-polly as the following commands</p>
+</li>
+</ol>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">cd polly_ex &amp;&amp; ./runtime.sh  // for PC/X86</span>
+<span class="go">cd polly_ex &amp;&amp; ./build-matmul-arm.sh            // build with llvm arm</span>
+<span class="go">time ./matmul                                   // non-polly clang -O3</span>
+<span class="go">// result:</span>
+<span class="gp">    #</span> <span class="nb">time</span> ./matmul
+<span class="go">    real    10m 25.97s</span>
+<span class="go">    user    10m 25.76s</span>
+<span class="go">    sys     0m 0.23s</span>
+
+<span class="go">time ./matmul.polly                             // polly clang -O3</span>
+<span class="go">// result</span>
+<span class="gp">    #</span> <span class="nb">time</span> ./matmul.polly
+<span class="go">    real    2m 59.71s</span>
+<span class="go">    user    2m 59.55s</span>
+<span class="go">    sys     0m 0.16s</span>
+
+<span class="go">time ./pmatmul &gt; pmatmul.result</span>
+<span class="go">// result</span>
+<span class="gp">    #</span> <span class="nb">time</span> ./pmatmul &gt; pmatmul.result
+<span class="go">    real    22m 38.11s</span>
+<span class="go">    user    10m 33.15s</span>
+<span class="go">    sys     0m 0.51s</span>
+
+<span class="go">time ./pmatmul.polly &gt; pmatmul.polly.result</span>
+<span class="go">// result</span>
+<span class="go">    real    15m 45.92s</span>
+<span class="go">    user    3m 12.79s</span>
+<span class="go">    sys     0m 0.50s</span>
+
+<span class="go">diff pmatmul.result pmatmul.polly.result        // to ensure the outputs is same</span>
+</pre></div>
+</div>
+<ol class="arabic" start="7">
+<li><p class="first">2014/03/07 the git llvm/polly can build by the following change of polly.sh,</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>from:</dt>
+<dd><p class="first last">make -j$procs -l$procs</p>
+</dd>
+<dt>to:</dt>
+<dd><p class="first last">make</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p class="first">Document:</p>
+<p><a class="reference external" href="http://polly.llvm.org/publications/grosser-diploma-thesis.pdf">http://polly.llvm.org/publications/grosser-diploma-thesis.pdf</a></p>
+</li>
+<li><p class="first">Gcc option -floop-strip-mine is for tiling.</p>
+<p>You may run man gcc | grep &#8216;-floop-strip-mine&#8217; to check if that is a supported option.</p>
+</li>
+<li><p class="first">Copy as follows, then can run polly parallel with omp api.</p>
+<p>~/test/llvm-arm-toolchain/1$ scp ./Marvell_toolchain_2013_04_12/arm-marvell-linux-gnueabi-hard_x86_64/arm-marvell-linux-gnueabi/libc/lib/libgomp.so.1 <a class="reference external" href="mailto:root&#37;&#52;&#48;10&#46;19&#46;132&#46;177">root<span>&#64;</span>10<span>&#46;</span>19<span>&#46;</span>132<span>&#46;</span>177</a>:/usr/lib/</p>
+</li>
+<li><p class="first">Change tile size in tools/polly/lib/ScheduleOptimizer.cpp,</p>
+<p>static isl_basic_map <em>getTileMap(isl_ctx *ctx, int scheduleDimensions, isl_space *SpaceModel, int tileSize = 32/*12</em>/);</p>
+</li>
+<li><p class="first">For static debug:</p>
+</li>
+</ol>
+<blockquote>
+<div><p>(1). Set ~/.bashrc as follows,</p>
+<blockquote>
+<div><p>export LD_LIBRARY_PATH=&#8221;$LD_LIBRARY_PATH:/home/cschen/test/0819-polly/cloog_install/lib&#8221;</p>
+<p>because:</p>
+<p><a class="reference external" href="http://stackoverflow.com/questions/695530/why-do-i-have-to-define-ld-library-path-with-an-export-every-time-i-run-my-appli">http://stackoverflow.com/questions/695530/why-do-i-have-to-define-ld-library-path-with-an-export-every-time-i-run-my-appli</a></p>
+</div></blockquote>
+<p>(2). cmake change as follows,</p>
+<blockquote>
+<div>cmake -DCMAKE_PREFIX_PATH=${CLOOG_INSTALL} -D LINK_POLLY_INTO_TOOLS:Bool=ON -DCMAKE_BUILD_TYPE=Debug ${LLVM_SRC}</div></blockquote>
+<p>(3). gdb -args [clang -v] :</p>
+<blockquote>
+<div><p>[clang -v]= display for</p>
+<p>~/test/0819-polly/llvm_build/bin/clang -O3 -mllvm -polly -mllvm -enable-polly-openmp -lgomp -mllvm -polly-ignore-aliasing -I utilities -I datamining/covariance utilities/polybench.c -DPOLYBENCH_TIME -DPOLYBENCH_USE_SCALAR_LB -DSMALL_DATASET datamining/correlation/correlation.c -o polybench/correlation.paralle -v</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="polly-author-tobias">
+<h2><a class="toc-backref" href="#id12">Polly author: Tobias</a><a class="headerlink" href="#polly-author-tobias" title="Permalink to this headline">¶</a></h2>
+<p>Tobias visit Marvell Taiwan Hsinchu branch on 2014/08/26.</p>
+<a class="reference internal image-reference" href="_images/IMG_20140826_123920.png"><img alt="_images/IMG_20140826_123920.png" class="align-center" src="_images/IMG_20140826_123920.png" style="width: 169.52px; height: 127.14px;" /></a>
+</div>
+<div class="section" id="gang-ryung-uh-associate-professor">
+<h2><a class="toc-backref" href="#id13">Gang-Ryung Uh: Associate professor</a><a class="headerlink" href="#gang-ryung-uh-associate-professor" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://cs.boisestate.edu/~uh/">http://cs.boisestate.edu/~uh/</a></p>
+<p>Does VPO generate ARM Assembly code only, or it can generate other micro-processor assembly with little extend?
+Regarding the static pipeline architecture you created. Is it possible to extend VPO to support it?</p>
+<p>Find applications for static pipeline CPU, like merge into GPGPU architecture.</p>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="chinese.html">Chinese language</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="note.html">Note</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2012, Public Domain.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
+    </div>
+  </body>
+</html>
