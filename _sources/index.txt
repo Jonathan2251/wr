@@ -11,8 +11,6 @@ Chen Chung-Shu Writing
    chinese
    llvm
    note
-   briefresume
-   detailresume
    china
 
 - `travel <http://jonathan2251.github.io/tra/index.html>`_
