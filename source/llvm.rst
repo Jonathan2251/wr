@@ -176,7 +176,7 @@ git
 
 	  github:				https://github.com/Jonathan2251/lbd
 
-	  gh-pages:			http://jonathan2251.github.com/lbd/index.html
+	  gh-pages:			https://jonathan2251.github.io/lbd/index.html
 	
 	  git clone https://github.com/Jonathan2251/lbd.git
 
@@ -188,7 +188,7 @@ git
 
   Personal web:
 
-	  git clone https://github.com/Jonathan2251/web.git
+	  git clone https://github.com/Jonathan2251/ws.git
 
   uvbook:
 
