@@ -15,7 +15,7 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) sou
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
 
 # Custom
-GH_PAGES_SOURCES = source pictures Makefile resume
+GH_PAGES_SOURCES = source Makefile resume
 
 .PHONY: help
 help:
