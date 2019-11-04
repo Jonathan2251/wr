@@ -8,9 +8,8 @@ Chen Chung-Shu Writing
    myoldwork
    englishlearning
    llvm
+   buildhouse
    note
-
-- `travel <http://jonathan2251.github.io/tra/index.html>`_
 
 Search this website
 -------------------
