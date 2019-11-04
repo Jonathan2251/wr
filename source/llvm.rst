@@ -455,14 +455,6 @@ Can build with c11 option.
 
       ~/test/0819-polly/llvm_build/bin/clang -O3 -mllvm -polly -mllvm -enable-polly-openmp -lgomp -mllvm -polly-ignore-aliasing -I utilities -I datamining/covariance utilities/polybench.c -DPOLYBENCH_TIME -DPOLYBENCH_USE_SCALAR_LB -DSMALL_DATASET datamining/correlation/correlation.c -o polybench/correlation.paralle -v
 
-Polly author: Tobias
-----------------------
-
-Tobias visit Marvell Taiwan Hsinchu branch on 2014/08/26.
-
-.. image:: ../pictures/IMG_20140826_123920.png
-	:scale: 26 %
-	:align: center
 
 Gang-Ryung Uh: Associate professor
 -------------------------------------
