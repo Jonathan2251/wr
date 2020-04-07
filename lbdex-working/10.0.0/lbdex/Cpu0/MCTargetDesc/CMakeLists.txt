@@ -1,5 +1,5 @@
 # MCTargetDesc/CMakeLists.txt
-add_llvm_library(LLVMCpu0Desc
+add_llvm_component_library(LLVMCpu0Desc
 #if CH >= CH3_1
   Cpu0ABIInfo.cpp
 #endif
