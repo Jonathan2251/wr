@@ -27,7 +27,7 @@ Sphinx
 
 	  https://help.github.com/articles/creating-project-pages-manually
 
-  Put .onjekyll file in gh-pages
+  Put .nojekyll file in gh-pages
 
 .. code-block:: console
 
