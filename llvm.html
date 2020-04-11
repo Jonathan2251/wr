@@ -1,33 +1,34 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Note about LLVM &#8212; Chen Chung-Shu Personal Web Site</title>
+    
+    <title>Note about LLVM &mdash; Chen Chung-Shu Personal Web Site</title>
+    
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Chen Chung-Shu Personal Web Site" href="index.html" />
     <link rel="next" title="Build house" href="buildhouse.html" />
     <link rel="prev" title="English learning" href="englishlearning.html" /> 
   </head>
-  <body>
+  <body role="document">
       <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Chen Chung-Shu Personal Web Site</span></a></h1>
         <h2 class="heading"><span>Note about LLVM</span></h2>
@@ -66,9 +67,9 @@
 </div>
 <div class="section" id="lld">
 <h2><a class="toc-backref" href="#id1">lld</a><a class="headerlink" href="#lld" title="Permalink to this headline">¶</a></h2>
-<p>cmake -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_FLAGS=-std=c++11 -DCMAKE_BUILD_TYPE=Debug -DLLVM_TARGETS_TO_BUILD=Cpu0 -G “Unix Makefiles” ../src
+<p>cmake -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_FLAGS=-std=c++11 -DCMAKE_BUILD_TYPE=Debug -DLLVM_TARGETS_TO_BUILD=Cpu0 -G &#8220;Unix Makefiles&#8221; ../src
 make -j8 -l8</p>
-<p>cmake -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_FLAGS=-std=c++11 -DCMAKE_BUILD_TYPE=Debug -DLLVM_TARGETS_TO_BUILD=Cpu0 -G “Xcode” ../src</p>
+<p>cmake -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_FLAGS=-std=c++11 -DCMAKE_BUILD_TYPE=Debug -DLLVM_TARGETS_TO_BUILD=Cpu0 -G &#8220;Xcode&#8221; ../src</p>
 <p>git clone <a class="reference external" href="http://llvm.org/git/llvm.git">http://llvm.org/git/llvm.git</a> src
 cd src/tools</p>
 <p>git clone <a class="reference external" href="http://llvm.org/git/lld.git">http://llvm.org/git/lld.git</a> lld</p>
@@ -82,7 +83,7 @@ cd src/tools</p>
 <div><p>One time procedure for gh-pages: // Create gp-pages branch</p>
 <blockquote>
 <div><a class="reference external" href="https://help.github.com/articles/creating-project-pages-manually">https://help.github.com/articles/creating-project-pages-manually</a></div></blockquote>
-<p>Put .onjekyll file in gh-pages</p>
+<p>Put .nojekyll file in gh-pages</p>
 </div></blockquote>
 <div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/Jonathan2251/web</span>
 <span class="go">cd web</span>
@@ -115,13 +116,13 @@ cd src/tools</p>
 <p>hexdump ch4_5_1.cpu0.o</p>
 <p>otool</p>
 <p>od</p>
-<p>Open binary file by TextWrangler, and select File - Hex Dump Front Document - Front document’s file</p>
+<p>Open binary file by TextWrangler, and select File - Hex Dump Front Document - Front document&#8217;s file</p>
 <p>Safari cannot attach file in yahoo e-mail, Firefox can.</p>
 <p>Terminal:</p>
 <p>Ctrl + a and Ctrl + e for beginning and end respectively.</p>
 <p>Print screen:</p>
 <p>shift + command + 4, use mouse to select your window/area to copy to chipboard, and paste it to your document file.</p>
-<p>Room in/out: control + finger move up/down on mouse (must check System Preferences – Accessibility – Room – Use scroll gesture with modifier keys to zoom: Control)</p>
+<p>Room in/out: control + finger move up/down on mouse (must check System Preferences &#8211; Accessibility &#8211; Room &#8211; Use scroll gesture with modifier keys to zoom: Control)</p>
 </div></blockquote>
 <ol class="arabic simple" start="2">
 <li>Sync/backup disk:</li>
@@ -132,10 +133,10 @@ cd src/tools</p>
 </div>
 <div class="section" id="build-libcxx-arm">
 <h2><a class="toc-backref" href="#id4">Build libcxx-arm</a><a class="headerlink" href="#build-libcxx-arm" title="Permalink to this headline">¶</a></h2>
-<p>CC=’clang’ CXX=’clang++’ cmake -DCMAKE_CROSSCOMPILING=True -DLLVM_TABLEGEN=/usr/local/llvm/release/cmake_release_build/bin/llvm-tblgen -DCLANG_TABLEGEN=/usr/local/llvm/release/cmake_release_build/bin/clang-tblgen -DLLVM_DEFAULT_TARGET_TRIPLE=arm-linux-gnueabihf -DLLVM_TARGET_ARCH=ARM -DLLVM_TARGETS_TO_BUILD=ARM -DCMAKE_CXX_FLAGS=’-target armv7a-linux-gnueabihf -mcpu=cortex-a9 -I/usr/gcc-linaro-arm-linux-gnueabihf-4.8-2013.04-20130417_linux/arm-linux-gnueabihf/include/c++/4.8.1/arm-linux-gnueabihf -I/usr/gcc-linaro-arm-linux-gnueabihf-4.8-2013.04-20130417_linux/include/ -mfloat-abi=hard -ccc-gcc-name arm-linux-gnueabihf-gcc’ ../src</p>
+<p>CC=&#8217;clang&#8217; CXX=&#8217;clang++&#8217; cmake -DCMAKE_CROSSCOMPILING=True -DLLVM_TABLEGEN=/usr/local/llvm/release/cmake_release_build/bin/llvm-tblgen -DCLANG_TABLEGEN=/usr/local/llvm/release/cmake_release_build/bin/clang-tblgen -DLLVM_DEFAULT_TARGET_TRIPLE=arm-linux-gnueabihf -DLLVM_TARGET_ARCH=ARM -DLLVM_TARGETS_TO_BUILD=ARM -DCMAKE_CXX_FLAGS=&#8217;-target armv7a-linux-gnueabihf -mcpu=cortex-a9 -I/usr/gcc-linaro-arm-linux-gnueabihf-4.8-2013.04-20130417_linux/arm-linux-gnueabihf/include/c++/4.8.1/arm-linux-gnueabihf -I/usr/gcc-linaro-arm-linux-gnueabihf-4.8-2013.04-20130417_linux/include/ -mfloat-abi=hard -ccc-gcc-name arm-linux-gnueabihf-gcc&#8217; ../src</p>
 <p>native try:
-PASS: CC=clang CXX=clang++ cmake -G “Unix Makefiles” -DCMAKE_BUILD_TYPE=Release ../src
-FAIL: CC=clang CXX=clang++ cmake -G “Unix Makefiles” -DLIBCXX_CXX_ABI=libstdc++ -DLIBCXX_LIBSUPCXX_INCLUDE_PATHS=”/usr/include/c++/4.8” -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr ../src</p>
+PASS: CC=clang CXX=clang++ cmake -G &#8220;Unix Makefiles&#8221; -DCMAKE_BUILD_TYPE=Release ../src
+FAIL: CC=clang CXX=clang++ cmake -G &#8220;Unix Makefiles&#8221; -DLIBCXX_CXX_ABI=libstdc++ -DLIBCXX_LIBSUPCXX_INCLUDE_PATHS=&#8221;/usr/include/c++/4.8&#8221; -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr ../src</p>
 </div>
 <div class="section" id="libc">
 <h2><a class="toc-backref" href="#id5">libc++</a><a class="headerlink" href="#libc" title="Permalink to this headline">¶</a></h2>
@@ -145,29 +146,29 @@ FAIL: CC=clang CXX=clang++ cmake -G “Unix Makefiles” -DLIBCXX_CXX_ABI=libstd
 <blockquote>
 <div><dl class="docutils">
 <dt>(1).</dt>
-<dd>~/test/llvm-libc++-3.5/cmake_release_build$ cmake -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_FLAGS=-std=c++11 -DCMAKE_BUILD_TYPE=Release -G “Unix Makefiles” ../src</dd>
-<dt>(2). Set LD_LIBRARY_PATH=”/home/cschen/test/llvm-libc++-3.5/cmake_release_build/lib” in ~/.bashrc as follows</dt>
-<dd>export LD_LIBRARY_PATH=”$LD_LIBRARY_PATH:/home/cschen/test/0819-polly/cloog_install/lib:/home/cschen/test/0819-polly/llvm_build/lib:/home/cschen/test/llvm-libc++-3.5/cmake_release_build/lib”</dd>
+<dd>~/test/llvm-libc++-3.5/cmake_release_build$ cmake -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_FLAGS=-std=c++11 -DCMAKE_BUILD_TYPE=Release -G &#8220;Unix Makefiles&#8221; ../src</dd>
+<dt>(2). Set LD_LIBRARY_PATH=&#8221;/home/cschen/test/llvm-libc++-3.5/cmake_release_build/lib&#8221; in ~/.bashrc as follows</dt>
+<dd>export LD_LIBRARY_PATH=&#8221;$LD_LIBRARY_PATH:/home/cschen/test/0819-polly/cloog_install/lib:/home/cschen/test/0819-polly/llvm_build/lib:/home/cschen/test/llvm-libc++-3.5/cmake_release_build/lib&#8221;</dd>
 <dt>(3).</dt>
 <dd>~/test/lbd/docs/BackendTutorial/source_ExampleCode/InputFiles$ /home/cschen/test/llvm-libc++-3.5/cmake_release_build/bin/clang++ -stdlib=libc++ -I/home/cschen/test/llvm-libc++-3.5/src/projects/libcxx/include hello.cpp -nodefaultlibs -lc++ -lc++abi -lm -lc -lgcc_s -lgcc</dd>
 <dt>(4).</dt>
 <dd>~/test/lbd/docs/BackendTutorial/source_ExampleCode/InputFiles$ ./a.out
 hello world</dd>
 </dl>
-<p>(5). If you don’t set LD_LIBRARY_PATH as (2), then it fail.</p>
+<p>(5). If you don&#8217;t set LD_LIBRARY_PATH as (2), then it fail.</p>
 </div></blockquote>
 <ol class="arabic simple" start="2">
 <li>Native x86_64 can be built successfully by these commands as follows,</li>
 </ol>
 <blockquote>
-<div><p>cmake -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_FLAGS=-std=c++11 -DCMAKE_BUILD_TYPE=Release -G “Unix Makefiles” ../src</p>
-<p>CC=clang CXX=clang++ cmake -G “Unix Makefiles” -DLIBCXX_CXX_ABI=libstdc++ -DLIBCXX_LIBSUPCXX_INCLUDE_PATHS=”/usr/include/c++/4.8/;/usr/include/x86_64-linux-gnu/c++/4.8/” -DCMAKE_BUILD_TYPE=Release ../src</p>
+<div><p>cmake -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_FLAGS=-std=c++11 -DCMAKE_BUILD_TYPE=Release -G &#8220;Unix Makefiles&#8221; ../src</p>
+<p>CC=clang CXX=clang++ cmake -G &#8220;Unix Makefiles&#8221; -DLIBCXX_CXX_ABI=libstdc++ -DLIBCXX_LIBSUPCXX_INCLUDE_PATHS=&#8221;/usr/include/c++/4.8/;/usr/include/x86_64-linux-gnu/c++/4.8/&#8221; -DCMAKE_BUILD_TYPE=Release ../src</p>
 </div></blockquote>
 <ol class="arabic" start="3">
 <li><p class="first">Arm cross compiler can be built and run successfully by commands,</p>
 <blockquote>
 <div><p>clang++ -target arm-linux-gnueabihf -isystem out-arm/include -isystem out-arm/include/c++/v1 -isystem /usr/arm-linux-gnueabihf/include -Lout-arm/lib -lc++ -lpthread -lc++abi -lm -lc -lgcc_s -lgcc hello-world.cpp -o a.out</p>
-<p>export “LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib/:/usr/arm-linux-gnueabihf/lib/”</p>
+<p>export &#8220;LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib/:/usr/arm-linux-gnueabihf/lib/&#8221;</p>
 </div></blockquote>
 </li>
 </ol>
@@ -177,7 +178,7 @@ hello world</dd>
 <div class="section" id="unix-linux-command">
 <h2><a class="toc-backref" href="#id6">Unix/linux command</a><a class="headerlink" href="#unix-linux-command" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Replace “Mips” with “Cpu0” in currently directory of all files.</li>
+<li>Replace &#8220;Mips&#8221; with &#8220;Cpu0&#8221; in currently directory of all files.</li>
 </ul>
 <div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">// Linux:</span>
 <span class="go">find . -type f -print0 | xargs -0 sed -i &#39;s/Mips/Cpu0/g&#39;</span>
@@ -203,7 +204,7 @@ hello world</dd>
 </div>
 <ul>
 <li><p class="first">grep exclude dir.</p>
-<p>grep -R –exclude-dir=./Target/Mips ‘mips’ .</p>
+<p>grep -R &#8211;exclude-dir=./Target/Mips &#8216;mips&#8217; .</p>
 </li>
 </ul>
 </div>
@@ -397,7 +398,7 @@ Wei-Ren github,</p>
 <li>Use polly:</li>
 </ol>
 <blockquote>
-<div>alias pollycc=”~/test/polly/cmake_debug_build/bin/clang -Xclang -load -Xclang ~/test/polly/cmake_debug_build/lib/LLVMPolly.so”
+<div>alias pollycc=&#8221;~/test/polly/cmake_debug_build/bin/clang -Xclang -load -Xclang ~/test/polly/cmake_debug_build/lib/LLVMPolly.so&#8221;
 pollycc -mllvm -polly -O3 ch8_1_3.cpp -o a.polly.out
 or,
 ~/test/polly/cmake_debug_build/bin/clang -Xclang -load -Xclang ~/test/polly/cmake_debug_build/lib/LLVMPolly.so -mllvm -polly -O3 ch8_1_3.cpp -o a.polly.out</div></blockquote>
@@ -465,7 +466,7 @@ Run with command, ./polly_cschen_arm.sh to build it with llvm arm toolchain on d
 <p><a class="reference external" href="http://polly.llvm.org/publications/grosser-diploma-thesis.pdf">http://polly.llvm.org/publications/grosser-diploma-thesis.pdf</a></p>
 </li>
 <li><p class="first">Gcc option -floop-strip-mine is for tiling.</p>
-<p>You may run man gcc | grep ‘-floop-strip-mine’ to check if that is a supported option.</p>
+<p>You may run man gcc | grep &#8216;-floop-strip-mine&#8217; to check if that is a supported option.</p>
 </li>
 <li><p class="first">Copy as follows, then can run polly parallel with omp api.</p>
 <p>~/test/llvm-arm-toolchain/1$ scp ./Marvell_toolchain_2013_04_12/arm-marvell-linux-gnueabi-hard_x86_64/arm-marvell-linux-gnueabi/libc/lib/libgomp.so.1 <a class="reference external" href="mailto:root&#37;&#52;&#48;10&#46;19&#46;132&#46;177">root<span>&#64;</span>10<span>&#46;</span>19<span>&#46;</span>132<span>&#46;</span>177</a>:/usr/lib/</p>
@@ -479,7 +480,7 @@ Run with command, ./polly_cschen_arm.sh to build it with llvm arm toolchain on d
 <blockquote>
 <div><p>(1). Set ~/.bashrc as follows,</p>
 <blockquote>
-<div><p>export LD_LIBRARY_PATH=”$LD_LIBRARY_PATH:/home/cschen/test/0819-polly/cloog_install/lib”</p>
+<div><p>export LD_LIBRARY_PATH=&#8221;$LD_LIBRARY_PATH:/home/cschen/test/0819-polly/cloog_install/lib&#8221;</p>
 <p>because:</p>
 <p><a class="reference external" href="http://stackoverflow.com/questions/695530/why-do-i-have-to-define-ld-library-path-with-an-export-every-time-i-run-my-appli">http://stackoverflow.com/questions/695530/why-do-i-have-to-define-ld-library-path-with-an-export-every-time-i-run-my-appli</a></p>
 </div></blockquote>
@@ -517,8 +518,8 @@ Regarding the static pipeline architecture you created. Is it possible to extend
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2012, Public Domain.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+        &copy; Copyright 2012, Public Domain.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
     </div>
   </body>
 </html>
