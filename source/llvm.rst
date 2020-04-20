@@ -25,9 +25,13 @@ Sphinx
 
   One time procedure for gh-pages: // Create gp-pages branch
 
-	  https://help.github.com/articles/creating-project-pages-manually
+  git checkout -b gh-pages
 
-  Put .nojekyll file in gh-pages
+  touch .nojekyll
+
+  git add .nojekyll
+
+  git push --set-upstream origin gh-pages
 
 .. code-block:: console
 
