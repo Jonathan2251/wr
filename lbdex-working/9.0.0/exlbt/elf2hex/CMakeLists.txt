@@ -18,5 +18,5 @@ add_llvm_tool(elf2hex
   )
 
 if(HAVE_LIBXAR)
-  target_link_libraries(elf2hex ${XAR_LIB})
+  target_link_libraries(elf2hex PRIVATE ${XAR_LIB})
 endif()
