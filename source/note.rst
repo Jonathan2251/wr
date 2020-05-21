@@ -142,6 +142,8 @@ https://careers.google.com/?utm_source=googleplus&utm_medium=lifeatgoogle&utm_ca
 San Diego houses
 ~~~~~~~~~~~~~~~~
 
+https://www.zillow.com/homedetails/10818-Aderman-Ave-APT-123-San-Diego-CA-92126/16791228_zpid/
+
 https://www.zillow.com/homedetails/10646-Aderman-Ave-APT-19-San-Diego-CA-92126/16791129_zpid/
 
 https://www.zillow.com/homedetails/10774-Dabney-Dr-APT-17-San-Diego-CA-92126/16790399_zpid/
