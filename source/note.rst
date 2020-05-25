@@ -142,6 +142,9 @@ https://careers.google.com/?utm_source=googleplus&utm_medium=lifeatgoogle&utm_ca
 San Diego houses
 ~~~~~~~~~~~~~~~~
 
+1 (square foot) =
+0.09290304 meters squared
+
 https://www.zillow.com/homedetails/10818-Aderman-Ave-APT-123-San-Diego-CA-92126/16791228_zpid/
 
 https://www.zillow.com/homedetails/10646-Aderman-Ave-APT-19-San-Diego-CA-92126/16791129_zpid/
@@ -150,3 +153,5 @@ https://www.zillow.com/homedetails/10774-Dabney-Dr-APT-17-San-Diego-CA-92126/167
 
 https://www.zillow.com/b/10627-Dabney-Dr-San-Diego-CA/32.910412,-117.157814_ll/
 
+
+https://www.redfin.com/
