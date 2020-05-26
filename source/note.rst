@@ -155,3 +155,9 @@ https://www.zillow.com/b/10627-Dabney-Dr-San-Diego-CA/32.910412,-117.157814_ll/
 
 
 https://www.redfin.com/
+
+
+Can I sleep in living room with my roommate.
+
+https://www.zillow.com/b/imt-sorrento-valley-san-diego-ca-5XkHyt/#unit-2084184739
+
