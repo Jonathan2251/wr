@@ -71,24 +71,6 @@ Study in Germany
 - http://www.daad.org.tw/zh/
 
 
-real estate
-------------
-
-http://www.屏東土地網.tw/
-
-http://www4.yunlin.gov.tw/land/
-
-高鐵雲林虎尾住宅用地2015/06標售結果每坪7.0萬大面積,流標
-http://www4.yunlin.gov.tw/land/home.jsp?mserno=200710140002&serno=200710140007&menudata=LandMenu&contlink=ap/news_view.jsp&dataserno=201506230003
-
-http://doublej1105.pixnet.net/blog/post/132624964-%E8%99%8E%E5%B0%BE%E9%AB%98%E9%90%B5%E7%89%B9%E5%AE%9A%E5%8D%80-%E7%B8%A3%E5%BA%9C%E5%94%AE11%E7%AD%86%E5%BB%BA%E5%9C%B0-%E6%8B%8D%E8%B3%A3%E5%83%B9%E6%8B%9A%E9%AB%98
-
-Zhoubei
-~~~~~~~~
-
-0938809189 43.5萬  65坪  法院朝南地
-
-
 Tennis 
 ------
 

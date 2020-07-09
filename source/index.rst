@@ -8,7 +8,6 @@ Chen Chung-Shu Writing
    myoldwork
    englishlearning
    llvm
-   buildhouse
    note
 
 Search this website
