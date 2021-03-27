@@ -1651,8 +1651,9 @@ Cpu0TargetLowering::LowerFormalArguments(SDValue Chain,
 #endif
 
 #if CH >= CH9_1 //6
-  Function::const_arg_iterator FuncArg =
-    DAG.getMachineFunction().getFunction().arg_begin();
+  const Function &Func = DAG.getMachineFunction().getFunction();
+  Function::const_arg_iterator FuncArg = Func.arg_begin();
+
   bool UseSoftFloat = Subtarget.abiUsesSoftFloat();
 
   Cpu0CCInfo.analyzeFormalArguments(Ins, UseSoftFloat, FuncArg);
@@ -2199,8 +2200,7 @@ analyzeCallOperands(const SmallVectorImpl<ISD::OutputArg> &Args,
     else
 #endif
     {
-      MVT RegVT = getRegVT(ArgVT, FuncArgs[Args[I].OrigArgIndex].Ty, CallNode,
-                           IsSoftFloat);
+      MVT RegVT = getRegVT(ArgVT, IsSoftFloat);
       R = FixedFn(I, ArgVT, RegVT, CCValAssign::Full, ArgFlags, CCInfo);
     }
 
@@ -2238,7 +2238,7 @@ analyzeFormalArguments(const SmallVectorImpl<ISD::InputArg> &Args,
       continue;
     }
 
-    MVT RegVT = getRegVT(ArgVT, FuncArg->getType(), nullptr, IsSoftFloat);
+    MVT RegVT = getRegVT(ArgVT, IsSoftFloat);
 
     if (!FixedFn(I, ArgVT, RegVT, CCValAssign::Full, ArgFlags, CCInfo))
       continue;
@@ -2264,7 +2264,7 @@ analyzeReturn(const SmallVectorImpl<Ty> &RetVals, bool IsSoftFloat,
   for (unsigned I = 0, E = RetVals.size(); I < E; ++I) {
     MVT VT = RetVals[I].VT;
     ISD::ArgFlagsTy Flags = RetVals[I].Flags;
-    MVT RegVT = this->getRegVT(VT, RetTy, CallNode, IsSoftFloat);
+    MVT RegVT = this->getRegVT(VT, IsSoftFloat);
 
     if (Fn(I, VT, RegVT, CCValAssign::Full, Flags, this->CCInfo)) {
 #ifndef NDEBUG
@@ -2372,8 +2372,7 @@ void Cpu0TargetLowering::Cpu0CC::allocateRegs(ByValArgInfo &ByVal,
 #endif
 
 #if CH >= CH3_4 //getRegVT
-MVT Cpu0TargetLowering::Cpu0CC::getRegVT(MVT VT, const Type *OrigTy,
-                                         const SDNode *CallNode,
+MVT Cpu0TargetLowering::Cpu0CC::getRegVT(MVT VT,
                                          bool IsSoftFloat) const {
   if (IsSoftFloat || IsO32)
     return VT;

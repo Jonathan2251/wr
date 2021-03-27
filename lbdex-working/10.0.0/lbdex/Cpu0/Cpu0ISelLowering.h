@@ -306,8 +306,7 @@ namespace llvm {
       /// return a value. This function returns f64 if the argument is an i64
       /// value which has been generated as a result of softening an f128 value.
       /// Otherwise, it just returns VT.
-      MVT getRegVT(MVT VT, const Type *OrigTy, const SDNode *CallNode,
-                   bool IsSoftFloat) const;
+      MVT getRegVT(MVT VT, bool IsSoftFloat) const;
 
       template<typename Ty>
       void analyzeReturn(const SmallVectorImpl<Ty> &RetVals, bool IsSoftFloat,
