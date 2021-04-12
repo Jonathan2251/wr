@@ -128,6 +128,8 @@ void Cpu0AsmBackend::applyFixup(const MCAssembler &Asm, const MCFixup &Fixup,
 //@getFixupKindInfo {
 const MCFixupKindInfo &Cpu0AsmBackend::
 getFixupKindInfo(MCFixupKind Kind) const {
+  unsigned IsPCRelConstant =
+    MCFixupKindInfo::FKF_IsPCRel | MCFixupKindInfo::FKF_Constant;
   const static MCFixupKindInfo Infos[Cpu0::NumTargetFixupKinds] = {
     // This table *must* be in same the order of fixup_* kinds in
     // Cpu0FixupKinds.h.
@@ -139,8 +141,8 @@ getFixupKindInfo(MCFixupKind Kind) const {
     { "fixup_Cpu0_GPREL16",        0,     16,   0 },
     { "fixup_Cpu0_GOT",            0,     16,   0 },
 #if CH >= CH8_1 //2
-    { "fixup_Cpu0_PC16",           0,     16,  MCFixupKindInfo::FKF_IsPCRel },
-    { "fixup_Cpu0_PC24",           0,     24,  MCFixupKindInfo::FKF_IsPCRel },
+    { "fixup_Cpu0_PC16",           0,     16,  IsPCRelConstant },
+    { "fixup_Cpu0_PC24",           0,     24,  IsPCRelConstant },
 #endif
 #if CH >= CH9_1
     { "fixup_Cpu0_CALL16",         0,     16,   0 },

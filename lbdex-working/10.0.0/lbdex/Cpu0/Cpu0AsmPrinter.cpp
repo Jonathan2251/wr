@@ -79,7 +79,6 @@ bool Cpu0AsmPrinter::lowerOperand(const MachineOperand &MO, MCOperand &MCOp) {
 #ifdef ENABLE_GPRESTORE
 void Cpu0AsmPrinter::emitPseudoCPRestore(MCStreamer &OutStreamer,
                                               const MachineInstr *MI) {
-  unsigned Opc = MI->getOpcode();
   SmallVector<MCInst, 4> MCInsts;
   const MachineOperand &MO = MI->getOperand(0);
   assert(MO.isImm() && "CPRESTORE's operand must be an immediate.");

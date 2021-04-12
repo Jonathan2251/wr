@@ -210,6 +210,7 @@ def jmptarget    : Operand<OtherVT> {
 //#if CH >= CH9_1 //5
 def calltarget  : Operand<iPTR> {
   let EncoderMethod = "getJumpTargetOpValue";
+  let OperandType = "OPERAND_PCREL";
 }
 //#endif
 

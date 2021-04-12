@@ -287,7 +287,6 @@ void Cpu0SEFrameLowering::determineCalleeSaves(MachineFunction &MF,
 //@determineCalleeSaves-body
   TargetFrameLowering::determineCalleeSaves(MF, SavedRegs, RS);
   Cpu0FunctionInfo *Cpu0FI = MF.getInfo<Cpu0FunctionInfo>();
-  MachineRegisterInfo& MRI = MF.getRegInfo();
 #if CH >= CH9_3 //5
   unsigned FP = Cpu0::FP;
 

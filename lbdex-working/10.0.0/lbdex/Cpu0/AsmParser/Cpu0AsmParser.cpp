@@ -76,9 +76,6 @@ class Cpu0AsmParser : public MCTargetAsmParser {
   bool ParseInstruction(ParseInstructionInfo &Info, StringRef Name,
                         SMLoc NameLoc, OperandVector &Operands) override;
 
-  bool parseMathOperation(StringRef Name, SMLoc NameLoc,
-                        OperandVector &Operands);
-
   bool ParseDirective(AsmToken DirectiveID) override;
 
   OperandMatchResultTy parseMemOperand(OperandVector &);
@@ -834,56 +831,6 @@ OperandMatchResultTy Cpu0AsmParser::parseMemOperand(
   // and add memory operand
   Operands.push_back(Cpu0Operand::CreateMem(RegNo, IdVal, S, E));
   return MatchOperand_Success;
-}
-
-bool Cpu0AsmParser::
-parseMathOperation(StringRef Name, SMLoc NameLoc,
-                   OperandVector &Operands) {
-  // split the format
-  size_t Start = Name.find('.'), Next = Name.rfind('.');
-  StringRef Format1 = Name.slice(Start, Next);
-  // and add the first format to the operands
-  Operands.push_back(Cpu0Operand::CreateToken(Format1, NameLoc));
-  // now for the second format
-  StringRef Format2 = Name.slice(Next, StringRef::npos);
-  Operands.push_back(Cpu0Operand::CreateToken(Format2, NameLoc));
-
-  // set the format for the first register
-//  setFpFormat(Format1);
-
-  // Read the remaining operands.
-  if (getLexer().isNot(AsmToken::EndOfStatement)) {
-    // Read the first operand.
-    if (ParseOperand(Operands, Name)) {
-      SMLoc Loc = getLexer().getLoc();
-      Parser.eatToEndOfStatement();
-      return Error(Loc, "unexpected token in argument list");
-    }
-
-    if (getLexer().isNot(AsmToken::Comma)) {
-      SMLoc Loc = getLexer().getLoc();
-      Parser.eatToEndOfStatement();
-      return Error(Loc, "unexpected token in argument list");
-
-    }
-    Parser.Lex();  // Eat the comma.
-
-    // Parse and remember the operand.
-    if (ParseOperand(Operands, Name)) {
-      SMLoc Loc = getLexer().getLoc();
-      Parser.eatToEndOfStatement();
-      return Error(Loc, "unexpected token in argument list");
-    }
-  }
-
-  if (getLexer().isNot(AsmToken::EndOfStatement)) {
-    SMLoc Loc = getLexer().getLoc();
-    Parser.eatToEndOfStatement();
-    return Error(Loc, "unexpected token in argument list");
-  }
-
-  Parser.Lex(); // Consume the EndOfStatement
-  return false;
 }
 
 bool Cpu0AsmParser::
